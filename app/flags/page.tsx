@@ -1,4 +1,7 @@
+import type { Metadata } from 'next'
 import PostTypeArchive from '@/components/PostTypeArchive'
+
+export const metadata: Metadata = { title: 'Fahnen' }
 
 export default async function FlagsArchivePage({
   searchParams,

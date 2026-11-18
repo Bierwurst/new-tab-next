@@ -1,5 +1,8 @@
+import type { Metadata } from 'next'
 import { getPostsByType, getSite } from '@/lib/api'
 import PuzzleList from '@/components/PuzzleListClient'
+
+export const metadata: Metadata = { title: 'Puzzles' }
 
 export default async function PuzzleArchivePage() {
   const [{ posts }, site] = await Promise.all([

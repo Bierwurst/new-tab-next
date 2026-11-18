@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import {
@@ -6,6 +7,15 @@ import {
   getCategoryBySlug,
   getPostsByCategory,
 } from '@/lib/api'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const category = await getCategoryBySlug((await params).slug)
+  return { title: category ? decodeEntities(category.name) : undefined }
+}
 
 export default async function CategoryArchivePage({
   params,

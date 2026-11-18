@@ -1,4 +1,7 @@
+import type { Metadata } from 'next'
 import PostTypeArchive from '@/components/PostTypeArchive'
+
+export const metadata: Metadata = { title: 'Pokale' }
 
 export default async function CupsArchivePage({
   searchParams,

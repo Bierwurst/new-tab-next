@@ -6,9 +6,14 @@ import { getSite } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'New Tab',
-  description: 'New Tab',
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSite()
+  return {
+    title: {
+      default: site.site_name,
+      template: `%s – ${site.site_name}`,
+    },
+  }
 }
 
 export default async function RootLayout({
